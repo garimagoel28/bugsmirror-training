@@ -21,6 +21,11 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, Common.ErrordecodingJSON, http.StatusBadRequest)
 		return
 	}
+	// Validate that required field of secret code is not empty
+	if loginData.SecretCode == "" {
+		http.Error(w, Common.SecretCodeEmptyError, http.StatusBadRequest)
+		return
+	}
 	// Extract secret code from request
 	secretCode := loginData.SecretCode
 	fmt.Println(secretCode)
