@@ -7,18 +7,16 @@ setTimeout(() => {
                 var str1 = Memory.readUtf8String(args[0]);
                 var str2 = Memory.readUtf8String(args[1]);
                 if(str1.includes("aaaaaaaaaaaaaaaaaaaaaaa") || str2.includes("aaaaaaaaaaaaaaaaaaaaaaa")){
-                    console.log(Memory.readUtf8String(args.map(arg => arg.toString())));
+                    console.log(str1,str2);
                 }
             }
-            catch (error){
-                console.log(error)
+            catch (error) {
+                console.error(error)
             }
-
         },
         onLeave:function(retval){
 
         }
-
     });
 
 }, 3000);
